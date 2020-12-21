@@ -12,6 +12,7 @@ import { NoteEditor } from '@/containers/NoteEditor'
 import { NoteList } from '@/containers/NoteList'
 import { SettingsModal } from '@/containers/SettingsModal'
 import { TempStateProvider } from '@/contexts/TempStateContext'
+import { HeadBar } from '@/containers/Headbar'
 import { useInterval, useBeforeUnload } from '@/utils/hooks'
 import {
   getWebsiteTitle,
@@ -98,6 +99,9 @@ export const TakeNoteApp: React.FC = () => {
 
       <TempStateProvider>
         <div className={determineAppClass(darkTheme, sidebarVisible, activeFolder)}>
+          <div className="pull-right">
+            <HeadBar />
+          </div>
           <DragDropContext onDragEnd={onDragEnd}>
             <SplitPane split="vertical" minSize={150} maxSize={500} defaultSize={240}>
               <AppSidebar />

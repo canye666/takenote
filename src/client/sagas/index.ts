@@ -28,9 +28,10 @@ function* loginUser() {
     if (isDemo) {
       yield put(loginSuccess({ name: 'Demo User' }))
     } else {
-      const { data } = yield axios('/api/auth/login')
+      // github auth only one step
+      // const { data } = yield axios('/api/auth/login')
 
-      yield put(loginSuccess(data))
+      yield put(loginSuccess(true))
     }
   } catch (error) {
     yield put(loginError(error.message))
